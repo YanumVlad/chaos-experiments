@@ -1,0 +1,116 @@
+{
+  "run": [],
+  "start": "2020-10-29T21:42:26.263554",
+  "status": "failed",
+  "platform": "Linux-4.15.0-1098-azure-x86_64-with-Ubuntu-16.04-xenial",
+  "steady_states": {
+    "during": [],
+    "before": {
+      "steady_state_met": false,
+      "probes": [
+        {
+          "tolerance_met": false,
+          "activity": {
+            "tolerance": 200,
+            "provider": {
+              "method": "GET",
+              "url": "https://awebshop.io/",
+              "type": "http"
+            },
+            "name": "service-must-respond",
+            "type": "probe"
+          },
+          "output": null,
+          "start": "2020-10-29T21:42:36.960711",
+          "status": "failed",
+          "end": "2020-10-29T21:42:37.186204",
+          "duration": 0.225493,
+          "exception": [
+            "Traceback (most recent call last):\n",
+            "  File \"/usr/local/lib/python3.5/dist-packages/urllib3/connection.py\", line 160, in _new_conn\n    (self._dns_host, self.port), self.timeout, **extra_kw\n",
+            "  File \"/usr/local/lib/python3.5/dist-packages/urllib3/util/connection.py\", line 61, in create_connection\n    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):\n",
+            "  File \"/usr/lib/python3.5/socket.py\", line 732, in getaddrinfo\n    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):\n",
+            "socket.gaierror: [Errno -2] Name or service not known\n",
+            "\nDuring handling of the above exception, another exception occurred:\n\n",
+            "Traceback (most recent call last):\n",
+            "  File \"/usr/local/lib/python3.5/dist-packages/urllib3/connectionpool.py\", line 677, in urlopen\n    chunked=chunked,\n",
+            "  File \"/usr/local/lib/python3.5/dist-packages/urllib3/connectionpool.py\", line 381, in _make_request\n    self._validate_conn(conn)\n",
+            "  File \"/usr/local/lib/python3.5/dist-packages/urllib3/connectionpool.py\", line 978, in _validate_conn\n    conn.connect()\n",
+            "  File \"/usr/local/lib/python3.5/dist-packages/urllib3/connection.py\", line 309, in connect\n    conn = self._new_conn()\n",
+            "  File \"/usr/local/lib/python3.5/dist-packages/urllib3/connection.py\", line 172, in _new_conn\n    self, \"Failed to establish a new connection: %s\" % e\n",
+            "urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f9098249b00>: Failed to establish a new connection: [Errno -2] Name or service not known\n",
+            "\nDuring handling of the above exception, another exception occurred:\n\n",
+            "Traceback (most recent call last):\n",
+            "  File \"/usr/local/lib/python3.5/dist-packages/requests/adapters.py\", line 449, in send\n    timeout=timeout\n",
+            "  File \"/usr/local/lib/python3.5/dist-packages/urllib3/connectionpool.py\", line 727, in urlopen\n    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]\n",
+            "  File \"/usr/local/lib/python3.5/dist-packages/urllib3/util/retry.py\", line 439, in increment\n    raise MaxRetryError(_pool, url, error or ResponseError(cause))\n",
+            "urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='awebshop.io', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f9098249b00>: Failed to establish a new connection: [Errno -2] Name or service not known',))\n",
+            "\nDuring handling of the above exception, another exception occurred:\n\n",
+            "Traceback (most recent call last):\n",
+            "  File \"/home/vladislav_yanum/.local/lib/python3.5/site-packages/chaoslib/provider/http.py\", line 53, in run_http_activity\n    verify=verify_tls)\n",
+            "  File \"/usr/local/lib/python3.5/dist-packages/requests/sessions.py\", line 543, in get\n    return self.request('GET', url, **kwargs)\n",
+            "  File \"/usr/local/lib/python3.5/dist-packages/requests/sessions.py\", line 530, in request\n    resp = self.send(prep, **send_kwargs)\n",
+            "  File \"/usr/local/lib/python3.5/dist-packages/requests/sessions.py\", line 643, in send\n    r = adapter.send(request, **kwargs)\n",
+            "  File \"/usr/local/lib/python3.5/dist-packages/requests/adapters.py\", line 516, in send\n    raise ConnectionError(e, request=request)\n",
+            "requests.exceptions.ConnectionError: HTTPSConnectionPool(host='awebshop.io', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f9098249b00>: Failed to establish a new connection: [Errno -2] Name or service not known',))\n",
+            "\nDuring handling of the above exception, another exception occurred:\n\n",
+            "chaoslib.exceptions.ActivityFailed: failed to connect to https://awebshop.io/: HTTPSConnectionPool(host='awebshop.io', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f9098249b00>: Failed to establish a new connection: [Errno -2] Name or service not known',))\n"
+          ]
+        }
+      ]
+    },
+    "after": null
+  },
+  "duration": 11.573475360870361,
+  "deviated": false,
+  "node": "cc-fd89d611-569fb56c8b-prrhc",
+  "chaoslib-version": "1.15.0",
+  "rollbacks": [],
+  "end": "2020-10-29T21:42:37.832989",
+  "experiment": {
+    "method": [
+      {
+        "type": "action",
+        "provider": {
+          "arguments": {
+            "filter": "where resourceGroup=='az_resourcegroup' | sample 1"
+          },
+          "type": "python",
+          "module": "pdchaosazure.machine.actions",
+          "func": "restart_machines"
+        },
+        "name": "Restart a random machine from the webshop cluster"
+      }
+    ],
+    "contributions": {
+      "security": "none",
+      "reliability": "high",
+      "performance": "medium",
+      "availability": "high"
+    },
+    "steady-state-hypothesis": {
+      "title": "Service is available and healthy",
+      "probes": [
+        {
+          "tolerance": 200,
+          "type": "probe",
+          "provider": {
+            "method": "GET",
+            "url": "https://awebshop.io/",
+            "type": "http"
+          },
+          "name": "service-must-respond"
+        }
+      ]
+    },
+    "version": "1.0.0",
+    "title": "Check resiliency and availability of the webshop cluster",
+    "description": "Restart random node from the cluster and check availability",
+    "rollbacks": [],
+    "dry": false,
+    "tags": [
+      "azure",
+      "vm"
+    ]
+  }
+}

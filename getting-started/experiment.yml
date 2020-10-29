@@ -1,0 +1,31 @@
+version: "1.0.0"
+title: "Check resiliency and availability of the webshop cluster"
+description: "Restart random node from the cluster and check availability"
+contributions:
+  reliability: high
+  availability: high
+  performance: medium
+  security: none
+tags:
+  - azure
+  - vm
+steady-state-hypothesis:
+  title: "Service is available and healthy"
+  probes:
+    - type: probe
+      name: "service-must-respond"
+      tolerance: 200
+      provider:
+        type: http
+        url: "https://awebshop.io/"
+        method: GET
+method:
+  - type: action
+    name: "Restart a random machine from the webshop cluster"
+    provider:
+      type: python
+      module: pdchaosazure.machine.actions
+      func: restart_machines
+      arguments:
+        filter: "where resourceGroup=='az_resourcegroup' | sample 1"
+rollbacks: []

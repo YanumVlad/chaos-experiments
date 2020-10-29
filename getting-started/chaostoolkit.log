@@ -1,0 +1,111 @@
+[36m[2020-10-29 21:42:23 DEBUG] [cli:74][39m ###############################################################################
+[36m[2020-10-29 21:42:23 DEBUG] [cli:75][39m Running command 'run'
+[36m[2020-10-29 21:42:23 DEBUG] [cli:79][39m Using settings file '/home/vladislav_yanum/.chaostoolkit/settings.yaml'
+[36m[2020-10-29 21:42:23 DEBUG] [__init__:167][39m Loading global control 'proofdock'
+[36m[2020-10-29 21:42:23 DEBUG] [__init__:367][39m Applying before-control 'proofdock' on 'loader'
+[36m[2020-10-29 21:42:23 DEBUG] [python:168][39m Control 'before_loading_experiment_control' loaded from '/home/vladislav_yanum/.local/lib/python3.5/site-packages/pdchaoskit/controls.py'
+[36m[2020-10-29 21:42:23 DEBUG] [__init__:367][39m Applying after-control 'proofdock' on 'loader'
+[36m[2020-10-29 21:42:23 DEBUG] [python:168][39m Control 'after_loading_experiment_control' loaded from '/home/vladislav_yanum/.local/lib/python3.5/site-packages/pdchaoskit/controls.py'
+[36m[2020-10-29 21:42:23 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-10-29 21:42:23 DEBUG] [caching:35][39m Cached 2 activities
+[32m[2020-10-29 21:42:23 INFO] [experiment:47][39m Validating the experiment's syntax
+[36m[2020-10-29 21:42:23 DEBUG] [configuration:54][39m Loading configuration...
+[36m[2020-10-29 21:42:23 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-10-29 21:42:23 DEBUG] [secret:89][39m Secrets loaded
+[32m[2020-10-29 21:42:26 INFO] [experiment:96][39m Experiment looks valid
+[36m[2020-10-29 21:42:26 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2020-10-29 21:42:26 DEBUG] [caching:25][39m Building activity cache...
+[36m[2020-10-29 21:42:26 DEBUG] [caching:35][39m Cached 2 activities
+[36m[2020-10-29 21:42:26 DEBUG] [configuration:54][39m Loading configuration...
+[36m[2020-10-29 21:42:26 DEBUG] [secret:74][39m Loading secrets...
+[36m[2020-10-29 21:42:26 DEBUG] [secret:89][39m Secrets loaded
+[32m[2020-10-29 21:42:26 INFO] [run:320][39m Running experiment: Check resiliency and availability of the webshop cluster
+[36m[2020-10-29 21:42:26 DEBUG] [__init__:136][39m Initializing global control 'proofdock'
+[36m[2020-10-29 21:42:26 DEBUG] [python:168][39m Control 'configure_control' loaded from '/home/vladislav_yanum/.local/lib/python3.5/site-packages/pdchaoskit/controls.py'
+[36m[2020-10-29 21:42:27 DEBUG] [__init__:39][39m Initializing controls
+[32m[2020-10-29 21:42:27 INFO] [run:340][39m Steady-state strategy: default
+[32m[2020-10-29 21:42:27 INFO] [run:343][39m Rollbacks strategy: default
+[36m[2020-10-29 21:42:27 DEBUG] [__init__:367][39m Applying before-control 'proofdock' on 'experiment'
+[36m[2020-10-29 21:42:27 DEBUG] [python:168][39m Control 'before_experiment_control' loaded from '/home/vladislav_yanum/.local/lib/python3.5/site-packages/pdchaoskit/controls.py'
+[32m[2020-10-29 21:42:27 INFO] [controls:94][39m Creating experiment run in Proofdock...
+[32m[2020-10-29 21:42:35 INFO] [controls:103][39m New experiment run with id: 'a87172e2-1a2f-11eb-8db4-d6a7c359f6d2' created.
+[36m[2020-10-29 21:42:36 DEBUG] [run:464][39m Running steady-state hypothesis before the method
+[32m[2020-10-29 21:42:36 INFO] [hypothesis:183][39m Steady state hypothesis: Service is available and healthy
+[36m[2020-10-29 21:42:36 DEBUG] [__init__:367][39m Applying before-control 'proofdock' on 'hypothesis'
+[36m[2020-10-29 21:42:36 DEBUG] [python:168][39m Control 'before_hypothesis_control' loaded from '/home/vladislav_yanum/.local/lib/python3.5/site-packages/pdchaoskit/controls.py'
+[36m[2020-10-29 21:42:36 DEBUG] [__init__:367][39m Applying before-control 'proofdock' on 'activity'
+[36m[2020-10-29 21:42:36 DEBUG] [python:168][39m Control 'before_activity_control' loaded from '/home/vladislav_yanum/.local/lib/python3.5/site-packages/pdchaoskit/controls.py'
+[32m[2020-10-29 21:42:36 INFO] [activity:161][39m Probe: service-must-respond
+[36m[2020-10-29 21:42:37 DEBUG] [activity:234][39m Activity failed
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.5/dist-packages/urllib3/connection.py", line 160, in _new_conn
+        (self._dns_host, self.port), self.timeout, **extra_kw
+      File "/usr/local/lib/python3.5/dist-packages/urllib3/util/connection.py", line 61, in create_connection
+        for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+      File "/usr/lib/python3.5/socket.py", line 732, in getaddrinfo
+        for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+    socket.gaierror: [Errno -2] Name or service not known
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.5/dist-packages/urllib3/connectionpool.py", line 677, in urlopen
+        chunked=chunked,
+      File "/usr/local/lib/python3.5/dist-packages/urllib3/connectionpool.py", line 381, in _make_request
+        self._validate_conn(conn)
+      File "/usr/local/lib/python3.5/dist-packages/urllib3/connectionpool.py", line 978, in _validate_conn
+        conn.connect()
+      File "/usr/local/lib/python3.5/dist-packages/urllib3/connection.py", line 309, in connect
+        conn = self._new_conn()
+      File "/usr/local/lib/python3.5/dist-packages/urllib3/connection.py", line 172, in _new_conn
+        self, "Failed to establish a new connection: %s" % e
+    urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f9098249b00>: Failed to establish a new connection: [Errno -2] Name or service not known
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/usr/local/lib/python3.5/dist-packages/requests/adapters.py", line 449, in send
+        timeout=timeout
+      File "/usr/local/lib/python3.5/dist-packages/urllib3/connectionpool.py", line 727, in urlopen
+        method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+      File "/usr/local/lib/python3.5/dist-packages/urllib3/util/retry.py", line 439, in increment
+        raise MaxRetryError(_pool, url, error or ResponseError(cause))
+    urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='awebshop.io', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f9098249b00>: Failed to establish a new connection: [Errno -2] Name or service not known',))
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/home/vladislav_yanum/.local/lib/python3.5/site-packages/chaoslib/provider/http.py", line 53, in run_http_activity
+        verify=verify_tls)
+      File "/usr/local/lib/python3.5/dist-packages/requests/sessions.py", line 543, in get
+        return self.request('GET', url, **kwargs)
+      File "/usr/local/lib/python3.5/dist-packages/requests/sessions.py", line 530, in request
+        resp = self.send(prep, **send_kwargs)
+      File "/usr/local/lib/python3.5/dist-packages/requests/sessions.py", line 643, in send
+        r = adapter.send(request, **kwargs)
+      File "/usr/local/lib/python3.5/dist-packages/requests/adapters.py", line 516, in send
+        raise ConnectionError(e, request=request)
+    requests.exceptions.ConnectionError: HTTPSConnectionPool(host='awebshop.io', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f9098249b00>: Failed to establish a new connection: [Errno -2] Name or service not known',))
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/home/vladislav_yanum/.local/lib/python3.5/site-packages/chaoslib/activity.py", line 231, in run_activity
+        result = run_http_activity(activity, configuration, secrets)
+      File "/home/vladislav_yanum/.local/lib/python3.5/site-packages/chaoslib/provider/http.py", line 87, in run_http_activity
+        u=url, x=str(cex)))
+    chaoslib.exceptions.ActivityFailed: failed to connect to https://awebshop.io/: HTTPSConnectionPool(host='awebshop.io', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f9098249b00>: Failed to establish a new connection: [Errno -2] Name or service not known',))
+[31m[2020-10-29 21:42:37 ERROR] [activity:187][39m   => failed: failed to connect to https://awebshop.io/: HTTPSConnectionPool(host='awebshop.io', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f9098249b00>: Failed to establish a new connection: [Errno -2] Name or service not known',))
+[36m[2020-10-29 21:42:37 DEBUG] [__init__:367][39m Applying after-control 'proofdock' on 'activity'
+[36m[2020-10-29 21:42:37 DEBUG] [python:168][39m Control 'after_activity_control' loaded from '/home/vladislav_yanum/.local/lib/python3.5/site-packages/pdchaoskit/controls.py'
+[33m[2020-10-29 21:42:37 WARNING] [hypothesis:200][39m Probe terminated unexpectedly, so its tolerance could not be validated
+[36m[2020-10-29 21:42:37 DEBUG] [__init__:367][39m Applying after-control 'proofdock' on 'hypothesis'
+[36m[2020-10-29 21:42:37 DEBUG] [python:168][39m Control 'after_hypothesis_control' loaded from '/home/vladislav_yanum/.local/lib/python3.5/site-packages/pdchaoskit/controls.py'
+[31m[2020-10-29 21:42:37 CRITICAL] [run:478][39m Steady state probe 'service-must-respond' is not in the given tolerance so failing this experiment
+[32m[2020-10-29 21:42:37 INFO] [run:419][39m Experiment ended with status: failed
+[36m[2020-10-29 21:42:37 DEBUG] [__init__:367][39m Applying after-control 'proofdock' on 'experiment'
+[36m[2020-10-29 21:42:37 DEBUG] [python:168][39m Control 'after_experiment_control' loaded from '/home/vladislav_yanum/.local/lib/python3.5/site-packages/pdchaoskit/controls.py'
+[36m[2020-10-29 21:42:38 DEBUG] [__init__:72][39m Cleaning up controls
+[36m[2020-10-29 21:42:38 DEBUG] [__init__:188][39m Cleaning up global control 'proofdock'
+[36m[2020-10-29 21:42:38 DEBUG] [python:168][39m Control 'cleanup_control' loaded from '/home/vladislav_yanum/.local/lib/python3.5/site-packages/pdchaoskit/controls.py'
+[36m[2020-10-29 21:42:38 DEBUG] [caching:42][39m Clearing activities cache
