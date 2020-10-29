@@ -88,7 +88,7 @@
             "provider": {
                 "type": "python",
                 "module": "pdchaosazure.webapp.actions",
-                "func": "start_webapp",
+                "func": "restart_webapp",
                 "arguments": {
                     "filter": "where resourceGroup=='${region_a_resource_group}' and name=='${region_a_app_service}'"
                 },
