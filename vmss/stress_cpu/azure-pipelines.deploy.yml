@@ -48,7 +48,7 @@ stages:
                         --enable-cluster-autoscaler \
                         --min-count 1 \
                         --max-count 2 \
-                        --ssh-key-value "$(ssh_public_key)" \
+                        --generate-ssh-keys \
                         --service-principal $servicePrincipalId \
                         --client-secret $servicePrincipalKey
 
