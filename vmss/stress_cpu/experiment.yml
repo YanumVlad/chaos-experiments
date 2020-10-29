@@ -64,7 +64,7 @@
             "name": "stop-app-service-region-a",
             "provider": {
                 "type": "python",
-                "module": "chaosazure.webapp.actions",
+                "module": "pdchaosazure.webapp.actions",
                 "func": "stop_webapp",
                 "arguments": {
                     "filter": "where resourceGroup=='${region_a_resource_group}' and name=='${region_a_app_service}'"
@@ -87,7 +87,7 @@
             "name": "start-app-service-region-a",
             "provider": {
                 "type": "python",
-                "module": "chaosazure.webapp.actions",
+                "module": "pdchaosazure.webapp.actions",
                 "func": "start_webapp",
                 "arguments": {
                     "filter": "where resourceGroup=='${region_a_resource_group}' and name=='${region_a_app_service}'"
