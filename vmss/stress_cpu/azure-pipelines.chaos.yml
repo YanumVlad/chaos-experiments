@@ -23,7 +23,7 @@ steps:
 - task: ChaosRunner@0
   inputs:
     token: '$(PROOFDOCK_API_TOKEN)'
-    description: 'Run getting-started experiment'
+    description: 'Run-getting-started-experiment'
     experimentPath: 'vmss/stress_cpu/experiment.yml'
     azureConnection: 'pd-service-principal'
     verbose: true
