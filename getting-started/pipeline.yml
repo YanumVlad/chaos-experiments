@@ -15,6 +15,5 @@ steps:
 - task: ChaosRunner@0
   inputs:
     token: '$(API_TOKEN)'
-    description: 'Run getting-started experiment'
     experimentPath: 'getting-started/experiment.yml'
     azureConnection: 'pd-service-principal'
