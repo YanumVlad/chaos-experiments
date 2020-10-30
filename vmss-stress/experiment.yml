@@ -17,6 +17,6 @@ method:
       module: pdchaosazure.vmss.actions
       func: stress_cpu
       arguments:
-        filter_vmss: "where resourceGroup=='mc_medium-experiment-vmss_aks_westeurope' | sample 1"
+        filter_vmss: "where resourceGroup=='chaos-testing-rg' | chaos-testing-vmss-vlad_1"
         duration: 300
 rollbacks: []
